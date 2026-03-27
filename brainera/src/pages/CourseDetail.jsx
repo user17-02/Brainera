@@ -7,7 +7,7 @@ import CoursesStyles from '../components/Courses.module.css'; // For common butt
 import CTA from '../components/CTA';
 import AuthContext from '../context/AuthContext'; // Import AuthContext
 
-const BACKEND_BASE_URL = 'http://localhost:5000'; // Ensure this matches your backend URL
+const BACKEND_BASE_URL = 'https://learnsphere-zwzg.onrender.com'; // Ensure this matches your backend URL
 
 const CourseDetail = () => {
     const { courseId } = useParams(); // Get courseId from URL
