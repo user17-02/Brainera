@@ -47,7 +47,7 @@
             "price": 49,
             "sections": 100,
             "students": 50,
-            "image": "/src/assets/unity-and-teamwork-2025-01-29-08-20-23-utc-1.jpg",
+            "image": "/assets/unity-and-teamwork-2025-01-29-08-20-23-utc-1.jpg",
             "category": "Marketing"
         },
         {
@@ -59,7 +59,7 @@
             "price": 79,
             "sections": 100,
             "students": 50,
-            "image": "/src/assets/in-a-corporate-setting-businessman-leads-a-meeting-2025-01-15-16-21-02-utc-1.jpg",
+            "image": "/assets/in-a-corporate-setting-businessman-leads-a-meeting-2025-01-15-16-21-02-utc-1.jpg",
             "category": "Development"
         },
         {
@@ -71,7 +71,7 @@
             "price": 59,
             "sections": 100,
             "students": 50,
-            "image": "/src/assets/web-designer-pointing-at-mockups-of-mobile-applica-2025-02-20-03-51-00-utc-1.jpg",
+            "image": "/assets/web-designer-pointing-at-mockups-of-mobile-applica-2025-02-20-03-51-00-utc-1.jpg",
             "category": "Design"
         },
         {
@@ -83,7 +83,7 @@
             "price": 39,
             "sections": 100,
             "students": 50,
-            "image": "/src/assets/analyzing-marketing-tools-2025-03-16-19-07-32-utc-1.jpg",
+            "image": "/assets/analyzing-marketing-tools-2025-03-16-19-07-32-utc-1.jpg",
             "category": "Marketing"
         },
         {
@@ -95,7 +95,7 @@
             "price": 45,
             "sections": 100,
             "students": 50,
-            "image": "/src/assets/a-young-man-in-glasses-stands-near-a-computer-desk-2025-02-14-16-56-49-utc-1.jpg",
+            "image": "/assets/a-young-man-in-glasses-stands-near-a-computer-desk-2025-02-14-16-56-49-utc-1.jpg",
             "category": "Development"
         },
         {
@@ -107,7 +107,7 @@
             "price": 35,
             "sections": 100,
             "students": 50,
-            "image": "/src/assets/computer-with-online-learning-course-2025-03-18-22-20-42-utc-1-768x512.jpg",
+            "image": "/assets/computer-with-online-learning-course-2025-03-18-22-20-42-utc-1-768x512.jpg",
             "category": "Design"
         },
         {
@@ -119,7 +119,7 @@
             "price": 42,
             "sections": 100,
             "students": 50,
-            "image": "/src/assets/seo-search-engine-optimization-2025-02-11-20-46-18-utc-1.jpg",
+            "image": "/assets/seo-search-engine-optimization-2025-02-11-20-46-18-utc-1.jpg",
             "category": "Marketing"
         },
         {
@@ -131,7 +131,7 @@
             "price": 65,
             "sections": 100,
             "students": 50,
-            "image": "/src/assets/unrecognizable-programmer-typing-codes-2025-04-29-03-41-35-utc-1.jpg",
+            "image": "/assets/unrecognizable-programmer-typing-codes-2025-04-29-03-41-35-utc-1.jpg",
             "category": "Development"
         },
         {
@@ -143,7 +143,7 @@
             "price": 55,
             "sections": 100,
             "students": 50,
-            "image": "/src/assets/two-female-web-designers-collaborating-on-user-int-2025-02-20-07-59-58-utc-1.jpg",
+            "image": "/assets/two-female-web-designers-collaborating-on-user-int-2025-02-20-07-59-58-utc-1.jpg",
             "category": "Design"
         }
     ],
