@@ -8,7 +8,7 @@ import AuthContext from '../context/AuthContext';
 import CourseEditForm from '../pages/CourseEditForm'; // Import the CourseEditForm
 import CourseCreateForm from '../pages/CourseCreateForm'; // Import the CourseCreateForm
 
-const BACKEND_BASE_URL = 'http://localhost:5000'; // Ensure this matches your backend URL
+const BACKEND_BASE_URL = 'https://learnsphere-zwzg.onrender.com'; // Ensure this matches your backend URL
 
 const InstructorMyCourses = () => {
     const { isLoggedIn, user, logout } = useContext(AuthContext);
