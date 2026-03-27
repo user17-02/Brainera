@@ -5,7 +5,7 @@ import styles from './InstructorCourseReviews.module.css'; // Component-specific
 import adminStyles from './AdminDashboard.module.css'; // Reusing admin table styles
 import AuthContext from '../context/AuthContext'; // Import AuthContext
 
-const BACKEND_BASE_URL = 'http://localhost:5000'; // Ensure this matches your backend URL
+const BACKEND_BASE_URL = 'https://learnsphere-zwzg.onrender.com'; // Ensure this matches your backend URL
 
 const InstructorCourseReviews = () => {
     const { courseId } = useParams();
