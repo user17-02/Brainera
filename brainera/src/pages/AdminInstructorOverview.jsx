@@ -5,7 +5,7 @@ import styles from './AdminInstructorOverview.module.css';
 import adminStyles from './AdminDashboard.module.css'; // For common styling like table
 import AuthContext from '../context/AuthContext';
 
-const BACKEND_BASE_URL = 'http://localhost:5000'; // Ensure this matches your backend URL
+const BACKEND_BASE_URL = 'https://learnsphere-zwzg.onrender.com'; // Ensure this matches your backend URL
 
 const AdminInstructorOverview = () => {
     const { isLoggedIn, user, logout } = useContext(AuthContext);
