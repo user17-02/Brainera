@@ -1,0 +1,222 @@
+.section {
+    padding: clamp(50px, 8vw, 100px) 0;
+    background-color: white;
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    align-items: flex-start;
+    /* Align tops */
+}
+
+.card {
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    /* Sharper corners options? Reference is slightly rounded */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e5e7eb;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Professional Card Theme */
+.card.professional {
+    background-color: #2b95a5;
+    /* Teal */
+    color: white;
+    border: none;
+    transform: scale(1.05);
+    /* Slightly larger */
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    z-index: 10;
+}
+
+.card.professional:hover {
+    transform: scale(1.05) translateY(-5px);
+}
+
+.popularBadge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: white;
+    color: #2b95a5;
+    padding: 6px 16px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+/* Header Info */
+.planName {
+    font-size: 22px;
+    font-weight: 700;
+    color: #2b95a5;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.card.professional .planName {
+    color: white;
+}
+
+.priceWrapper {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 20px;
+}
+
+.currency {
+    font-size: clamp(16px, 5vw, 28px);
+    font-weight: 700;
+    margin-right: 2px;
+    color: #2b95a5;
+}
+
+.price {
+    font-size: clamp(33px, 5vw, 56px);
+    font-weight: 800;
+    color: #2b95a5;
+    line-height: 1;
+}
+
+.duration {
+    font-size: 16px;
+    color: #1f2937;
+    font-weight: 500;
+    margin-left: 4px;
+}
+
+.card.professional .currency,
+.card.professional .price,
+.card.professional .duration {
+    color: white;
+}
+
+.description {
+    font-size: 15px;
+    color: #4b5563;
+    line-height: 1.5;
+    margin-bottom: 30px;
+    text-align: left;
+    border-bottom: 1px solid #f3f4f6;
+    /* Optional visual separation? */
+    padding-bottom: 30px;
+}
+
+.card.professional .description {
+    color: rgba(255, 255, 255, 0.9);
+    border-bottom-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Features List */
+.featuresTitle {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: left;
+    color: #1f2937;
+}
+
+.card.professional .featuresTitle {
+    color: white;
+}
+
+.featureList {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 40px 0;
+    text-align: left;
+}
+
+.featureItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    font-size: 15px;
+    color: #4b5563;
+}
+
+.card.professional .featureItem {
+    color: white;
+}
+
+/* Icons */
+.checkIcon {
+    color: #2b95a5;
+    flex-shrink: 0;
+}
+
+.crossIcon {
+    color: #9ca3af;
+    /* Gray for disabled */
+    flex-shrink: 0;
+}
+
+.card.professional .checkIcon {
+    color: white;
+}
+
+.card.professional .crossIcon {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Button */
+.button {
+    width: 100%;
+    padding: 14px 0;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border: none;
+    margin-top: auto;
+    /* Push to bottom */
+}
+
+/* Basic/Premium Button: Teal Bg, White Text */
+.btnPrimary {
+    background-color: #2b95a5;
+    color: white;
+}
+
+.btnPrimary:hover {
+    background-color: #227d8b;
+}
+
+/* Pro Button: White Bg, Teal Text */
+.btnSecondary {
+    background-color: white;
+    color: #2b95a5;
+}
+
+.btnSecondary:hover {
+    background-color: #f9fafb;
+}
+
+@media (max-width: 960px) {
+    .card.professional {
+        transform: none;
+        /* Disable scale on mobile */
+    }
+}

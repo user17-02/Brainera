@@ -1,0 +1,170 @@
+
+
+I builded  an Online Learning Platform using the Brainera HTML/WordPress template:
+https://www.wordpress-dev.codeinsolution.com/brainera/
+
+Create a COMPLETE backend for this project with the following stack:
+- Node.js
+- Express.js
+- MongoDB (Mongoose)
+- JWT authentication
+- REST APIs
+- server.js as entry point
+
+
+
+
+CORE MODULES TO BUILD
+
+1. AUTHENTICATION & USERS
+- User roles: Student, Instructor, Admin
+- Register (name, email, password, role)
+- Login with JWT
+- Password hashing (bcrypt)
+- Protected routes
+- Admin-only routes
+- Instructor-only routes
+
+MongoDB Schema:
+- User
+  - name
+  - email
+  - password
+  - role (student | instructor | admin)
+  - enrolledCourses[]
+  - createdCourses[]
+  - createdAt
+
+
+2. COURSES MODULE
+Courses must match the Brainera UI:
+- Course title
+- Description
+- Category
+- Instructor
+- Price (free / paid)
+- Duration
+- Level (Beginner / Intermediate / Advanced)
+- Thumbnail image URL
+- Lessons count
+- Status (draft / published) 
+
+APIs:
+- Create course (Instructor/Admin) 
+- Update course
+- Delete course
+- Get all courses
+- Get course by ID
+- Get courses by category
+- Get instructor courses
+
+MongoDB Schema:
+- Course
+  - title
+  - description
+  - category
+  - instructor (User reference)
+  - price
+  - duration
+  - level
+  - thumbnail
+  - lessons[]
+  - status
+  - createdAt
+
+
+3. LESSONS / CONTENT
+- Each course has multiple lessons
+- Lesson types: video / text / quiz (basic)
+- Lesson order support
+
+APIs:
+- Add lesson to course
+- Update lesson
+- Delete lesson
+- Get lessons by course
+
+MongoDB Schema:
+- Lesson
+  - courseId
+  - title
+  - content
+  - videoUrl
+  - order
+  - createdAt
+
+
+4. ENROLLMENT SYSTEM
+- Students can enroll in courses
+- Prevent duplicate enrollment
+- Track enrolled date
+- Get enrolled courses for student
+
+APIs:
+- Enroll in course
+- Get my enrolled courses
+- Get enrolled students (Instructor/Admin)
+
+MongoDB Schema:
+- Enrollment
+  - studentId
+  - courseId
+  - enrolledAt
+
+
+
+5. REVIEWS & RATINGS
+- Students can add reviews after enrollment
+- Rating from 1 to 5
+- One review per student per course
+
+APIs:
+- Add review
+- Update review
+- Delete review
+- Get reviews by course
+
+MongoDB Schema:
+- Review
+  - studentId
+  - courseId
+  - rating
+  - comment
+  - createdAt
+
+
+
+6. ADMIN DASHBOARD APIs
+- Total users count
+- Total courses count
+- Total enrollments
+- Recent users
+- Recent courses
+
+
+
+7. OTHER REQUIREMENTS
+- Proper error handling
+- Input validation
+- Use async/await
+- CORS enabled
+- Ready to connect with React frontend
+- API base URL: /api
+
+
+
+8. DELIVERABLES
+- Full backend code
+- MongoDB schemas
+- Express routes
+- Controllers
+- Sample API requests (Postman examples)
+- Instructions to run backend locally
+
+IMPORTANT:
+- Do NOT skip any module
+- Write clean, readable, commented code
+-  frontend is already built using Brainera UI
+- Backend must fully support frontend features
+
+Start with database connection and server.js, then proceed module by module.

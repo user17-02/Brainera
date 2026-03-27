@@ -1,0 +1,53 @@
+.section {
+    padding: clamp(30px, 8vw, 60px) 0;
+    background-color: var(--bg-white);
+    border-bottom: 1px solid #f3f4f6;
+    /* Optional separator */
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 40px;
+}
+
+.logoGrid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    /* Space between logos */
+}
+
+@media (min-width: 768px) {
+    .logoGrid {
+        justify-content: space-between;
+        /* Spread out on larger screens */
+        gap: 20px;
+    }
+}
+
+.logo {
+    height: 32px;
+    /* Fixed height for consistency */
+    width: auto;
+    object-fit: contain;
+    opacity: 0.6;
+    /* Grayscale/faded look */
+    filter: grayscale(100%);
+    transition: all 0.3s ease;
+}
+
+.logo:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+}

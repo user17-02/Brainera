@@ -1,0 +1,176 @@
+/* Existing styles... */
+.header {
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    /* var(--shadow-sm) replacement */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 20px;
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    font-size: clamp(14px, 5vw, 24px);
+    font-weight: 800;
+    color: var(--text-main);
+}
+
+.logoImage {
+    height: 48px;
+    /* Adjusted height for better fit */
+}
+
+.nav {
+    display: none;
+}
+
+@media (min-width: 1024px) {
+    .nav {
+        display: block;
+    }
+}
+
+.navList {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+}
+
+.navLink {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 500;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: color 0.2s;
+    height: var(--header-height);
+    /* Ensure full height for hover area if needed */
+}
+
+.navLink:hover,
+.navLink.active {
+    color: var(--primary-color) !important;
+}
+
+/* Dropdown */
+.dropdownParent {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.dropdownMenu {
+    position: absolute;
+    top: 100%;
+    /* Below the parent */
+    left: 0;
+    background: white;
+    min-width: 200px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 10px 0;
+    display: none;
+    flex-direction: column;
+    border: 1px solid #f3f4f6;
+    animation: fadeIn 0.2s ease;
+}
+
+.dropdownParent:hover .dropdownMenu {
+    display: flex;
+}
+
+.dropdownItem {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: var(--text-main);
+    font-size: 15px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.dropdownItem:hover {
+    background-color: #f9fafb;
+    color: var(--primary-color);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.actions {
+    display: none;
+    gap: 16px;
+    align-items: center;
+}
+
+@media (min-width: 1024px) {
+    .actions {
+        display: flex;
+    }
+}
+
+.loginBtn {
+    background: none;
+    border: none;
+    font-weight: 600;
+    color: var(--text-main);
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.freeTrialBtn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 9999px;
+    /* Rounded full */
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background-color 0.2s;
+}
+
+.freeTrialBtn:hover {
+    background-color: #227d8b;
+}
+
+.mobileMenuBtn {
+    display: block;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-main);
+}
+
+@media (min-width: 1024px) {
+    .mobileMenuBtn {
+        display: none;
+    }
+}

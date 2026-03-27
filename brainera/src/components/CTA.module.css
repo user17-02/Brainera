@@ -1,0 +1,96 @@
+.section {
+    padding: clamp(40px, 8vw, 80px) 0;
+    background-color: var(--bg-white);
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.banner {
+    background-color: #1f2937;
+    /* Dark background */
+    border-radius: 20px;
+    padding: 80px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.content {
+    max-width: 600px;
+}
+
+.tagline {
+    color: #2b95a5;
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 20px;
+    display: block;
+    text-transform: capitalize;
+}
+
+.title {
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: 800;
+    margin-bottom: 24px;
+    line-height: 1.2;
+}
+
+.description {
+    color: #d1d5db;
+    /* Light gray */
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.buttonGroup {
+    display: flex;
+    gap: 20px;
+}
+
+.btnPrimary {
+    background-color: #2b95a5;
+    color: white;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-size: 16px;
+}
+
+.btnPrimary:hover {
+    background-color: #227d8b;
+}
+
+.btnOutline {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    padding: 14px 32px;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 16px;
+}
+
+.btnOutline:hover {
+    background-color: white;
+    color: #1f2937;
+}
+
+@media (max-width: 960px) {
+    .banner {
+        flex-direction: column;
+        padding: 60px 40px;
+        text-align: left;
+        gap: 40px;
+        align-items: flex-start;
+    }
+}

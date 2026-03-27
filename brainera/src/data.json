@@ -1,0 +1,242 @@
+{
+    "categories": [
+        {
+            "id": 1,
+            "title": "Development",
+            "count": "150 Courses",
+            "icon": "Code"
+        },
+        {
+            "id": 2,
+            "title": "Business",
+            "count": "80 Courses",
+            "icon": "Briefcase"
+        },
+        {
+            "id": 3,
+            "title": "Design",
+            "count": "120 Courses",
+            "icon": "PenTool"
+        },
+        {
+            "id": 4,
+            "title": "Marketing",
+            "count": "60 Courses",
+            "icon": "Megaphone"
+        },
+        {
+            "id": 5,
+            "title": "Data Science",
+            "count": "40 Courses",
+            "icon": "Database"
+        },
+        {
+            "id": 6,
+            "title": "Lifestyle",
+            "count": "35 Courses",
+            "icon": "Coffee"
+        }
+    ],
+    "courses": [
+        {
+            "id": 1,
+            "title": "Digital Marketing Essentials",
+            "instructor": "Mark Thompson",
+            "rating": 4.7,
+            "reviews": 850,
+            "price": 49,
+            "sections": 100,
+            "students": 50,
+            "image": "/src/assets/unity-and-teamwork-2025-01-29-08-20-23-utc-1.jpg",
+            "category": "Marketing"
+        },
+        {
+            "id": 2,
+            "title": "Web Development Bootcamp",
+            "instructor": "Sarah Johnson",
+            "rating": 4.8,
+            "reviews": 1240,
+            "price": 79,
+            "sections": 100,
+            "students": 50,
+            "image": "/src/assets/in-a-corporate-setting-businessman-leads-a-meeting-2025-01-15-16-21-02-utc-1.jpg",
+            "category": "Development"
+        },
+        {
+            "id": 3,
+            "title": "UI/UX Design Fundamentals",
+            "instructor": "Emily Davis",
+            "rating": 4.9,
+            "reviews": 2100,
+            "price": 59,
+            "sections": 100,
+            "students": 50,
+            "image": "/src/assets/web-designer-pointing-at-mockups-of-mobile-applica-2025-02-20-03-51-00-utc-1.jpg",
+            "category": "Design"
+        },
+        {
+            "id": 4,
+            "title": "Social Media Strategy",
+            "instructor": "Alex Creative",
+            "rating": 4.6,
+            "reviews": 980,
+            "price": 39,
+            "sections": 100,
+            "students": 50,
+            "image": "/src/assets/analyzing-marketing-tools-2025-03-16-19-07-32-utc-1.jpg",
+            "category": "Marketing"
+        },
+        {
+            "id": 5,
+            "title": "JavaScript for Beginners",
+            "instructor": "John Doe",
+            "rating": 4.5,
+            "reviews": 500,
+            "price": 45,
+            "sections": 100,
+            "students": 50,
+            "image": "/src/assets/a-young-man-in-glasses-stands-near-a-computer-desk-2025-02-14-16-56-49-utc-1.jpg",
+            "category": "Development"
+        },
+        {
+            "id": 6,
+            "title": "Graphic Design Basics",
+            "instructor": "Jane Smith",
+            "rating": 4.7,
+            "reviews": 700,
+            "price": 35,
+            "sections": 100,
+            "students": 50,
+            "image": "/src/assets/computer-with-online-learning-course-2025-03-18-22-20-42-utc-1-768x512.jpg",
+            "category": "Design"
+        },
+        {
+            "id": 7,
+            "title": "SEO & Content Writing",
+            "instructor": "Mike Brown",
+            "rating": 4.8,
+            "reviews": 600,
+            "price": 42,
+            "sections": 100,
+            "students": 50,
+            "image": "/src/assets/seo-search-engine-optimization-2025-02-11-20-46-18-utc-1.jpg",
+            "category": "Marketing"
+        },
+        {
+            "id": 8,
+            "title": "React.js Essentials",
+            "instructor": "Sarah Johnson",
+            "rating": 4.9,
+            "reviews": 1500,
+            "price": 65,
+            "sections": 100,
+            "students": 50,
+            "image": "/src/assets/unrecognizable-programmer-typing-codes-2025-04-29-03-41-35-utc-1.jpg",
+            "category": "Development"
+        },
+        {
+            "id": 9,
+            "title": "Mobile App Design",
+            "instructor": "Jane Smith",
+            "rating": 4.8,
+            "reviews": 900,
+            "price": 55,
+            "sections": 100,
+            "students": 50,
+            "image": "/src/assets/two-female-web-designers-collaborating-on-user-int-2025-02-20-07-59-58-utc-1.jpg",
+            "category": "Design"
+        }
+    ],
+    "features": [
+        {
+            "title": "Expert Instructors",
+            "description": "Learn from industry experts who are passionate about teaching.",
+            "icon": "Users"
+        },
+        {
+            "title": "Lifetime Access",
+            "description": "Get lifetime access to courses and updates.",
+            "icon": "Clock"
+        },
+        {
+            "title": "Money Back Guarantee",
+            "description": "30-day money-back guarantee if you're not satisfied.",
+            "icon": "ShieldCheck"
+        }
+    ],
+    "testimonials": [
+        {
+            "id": 1,
+            "name": "Chloe Bennett",
+            "role": "UX Designer",
+            "image": "rating-1.jpg",
+            "content": "I love how easy it is to follow each course module here."
+        },
+        {
+            "id": 2,
+            "name": "Nathan Cole",
+            "role": "Software Developer",
+            "image": "rating-2.jpg",
+            "content": "Great instructors and practical topics made learning very enjoyable."
+        },
+        {
+            "id": 3,
+            "name": "Amelia Grant",
+            "role": "Marketing Specialist",
+            "image": "rating-3.jpg",
+            "content": "The platform helped me stay focused and learn faster from anywhere."
+        }
+    ],
+    "instructors": [
+        {
+            "id": 1,
+            "name": "Sophia Langford",
+            "role": "Senior Language Instructor",
+            "image": "testimonials-picture-1.jpg"
+        },
+        {
+            "id": 2,
+            "name": "Daniel Yu",
+            "role": "Mathematics Specialist",
+            "image": "testimonials-picture-2.jpg"
+        },
+        {
+            "id": 3,
+            "name": "Isabella Moreno",
+            "role": "Science Educator",
+            "image": "testimonials-picture-3.jpg"
+        },
+        {
+            "id": 4,
+            "name": "James O'Neal",
+            "role": "Tech & AI Mentor",
+            "image": "testimonials-picture-4-1.jpg"
+        }
+    ],
+    "blog": [
+        {
+            "id": 1,
+            "date": "June 19, 2025",
+            "title": "Interactive Learning: Why Engagement Matters More Than Ever",
+            "excerpt": "Interactive Learning: Why Engagement Matters More Than Ever...",
+            "image": "asian-woman-student-standing-with-laptop-coffee-an-2025-01-08-04-43-37-2utc-1-1-1.png",
+            "isFeatured": true
+        },
+        {
+            "id": 2,
+            "date": "June 28, 2025",
+            "title": "Top 5 Skills You'll Gain from Our Online Courses",
+            "excerpt": "Top 5 Skills You'll Gain from Our Online Courses John Doe June 28, 2025 In today's fast-moving digital world, learning...",
+            "image": "partner-logo-4-1.png",
+            "isFeatured": false
+        },
+        {
+            "id": 3,
+            "date": "June 19, 2025",
+            "title": "Benefits of Lifetime Access in E-Learning Platforms",
+            "excerpt": "Benefits of Lifetime Access in E-Learning Platforms John...",
+            "image": "web-designer-pointing-at-mockups-of-mobile-applica-2025-02-20-03-51-00-utc-1.jpg",
+            "isFeatured": false
+        }
+    ]
+}

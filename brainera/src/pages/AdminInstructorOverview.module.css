@@ -1,0 +1,150 @@
+.overviewSection {
+    padding: clamp(30px, 8vw, 60px) 0;
+    background-color: var(--bg-light);
+}
+
+.sectionTitle {
+    font-size: 2em;
+    color: var(--text-main);
+    margin-bottom: 40px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.noDataMessage,
+.noDataSubMessage {
+    text-align: center;
+    padding: 20px;
+    font-size: 1.1em;
+    color: var(--text-muted);
+}
+
+.instructorsList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.instructorCard {
+    background-color: var(--bg-white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden; /* Ensures child elements respect border-radius */
+}
+
+.instructorHeader {
+    width: 100%;
+    padding: 20px;
+    background-color: var(--bg-white);
+    border: none;
+    border-bottom: 1px solid var(--border-color, #eee);
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2em;
+    color: var(--text-main);
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.instructorHeader:hover {
+    background-color: var(--bg-light);
+}
+
+.instructorHeader h3 {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1em; /* Adjust to fit button */
+}
+
+.instructorHeader .icon {
+    color: var(--primary-color);
+}
+
+.instructorCourses,
+.courseStudents {
+    padding: 15px 20px;
+    background-color: var(--bg-light); /* Slightly different background for nested content */
+    border-top: 1px solid var(--border-color, #eee);
+}
+
+.coursesList {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.courseItem {
+    background-color: var(--bg-white);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+}
+
+.courseHeader {
+    width: 100%;
+    padding: 15px 20px;
+    background-color: var(--bg-white);
+    border: none;
+    border-bottom: 1px solid var(--border-color, #eee);
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1em;
+    color: var(--text-body);
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.courseHeader:hover {
+    background-color: var(--bg-light);
+}
+
+.courseHeader h4 {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1em; /* Adjust to fit button */
+}
+
+.courseHeader .icon {
+    color: var(--secondary-color);
+}
+
+.courseStudents {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* Table styling for students */
+.tableResponsive {
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+
+.table th,
+.table td {
+    border: 1px solid var(--border-color, #ddd);
+    padding: 8px;
+    text-align: left;
+}
+
+.table th {
+    background-color: var(--bg-light);
+    font-weight: 600;
+    color: var(--text-main);
+}

@@ -1,0 +1,121 @@
+.section {
+    padding: clamp(50px, 8vw, 100px) 0;
+    background-color: var(--bg-white);
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #f3f4f6;
+    text-align: center;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.imageWrapper {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1 / 1.1;
+    /* Slightly taller than square */
+}
+
+.imageWrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.card:hover .imageWrapper img {
+    transform: scale(1.05);
+}
+
+.socialOverlay {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    display: flex;
+    gap: 10px;
+    background: white;
+    padding: 10px 20px;
+    border-radius: 50px;
+    opacity: 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover .socialOverlay {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+.socialOverlay a {
+    color: var(--text-main);
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.socialOverlay a:hover {
+    color: var(--primary-color);
+}
+
+.shareIcon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 36px;
+    height: 36px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-main);
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.card:hover .shareIcon {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.content {
+    padding: 24px;
+}
+
+.name {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 8px;
+}
+
+.role {
+    font-size: 15px;
+    color: var(--primary-color);
+    font-weight: 500;
+}

@@ -1,0 +1,30 @@
+.loadingMessage,
+.errorMessage,
+.noCoursesMessage {
+    text-align: center;
+    padding: 20px;
+    font-size: 1.1em;
+    color: var(--text-color);
+}
+
+.errorMessage {
+    color: var(--color-danger);
+}
+
+.noCoursesMessage a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.noCoursesMessage a:hover {
+    text-decoration: underline;
+}
+
+.courseDescription {
+    font-size: 0.9em;
+    color: var(--text-muted);
+    margin-top: 10px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}

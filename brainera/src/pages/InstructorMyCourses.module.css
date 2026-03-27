@@ -1,0 +1,72 @@
+.loadingMessage,
+.errorMessage,
+.noCoursesMessage {
+    text-align: center;
+    padding: 20px;
+    font-size: 1.1em;
+    color: var(--text-color);
+}
+
+.errorMessage {
+    color: var(--color-danger);
+}
+
+.noCoursesMessage button {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 1.1em;
+    margin-left: 5px;
+}
+
+.noCoursesMessage button:hover {
+    text-decoration: none;
+}
+
+.courseActions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px; /* Adjust spacing as needed */
+    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+    position: relative; /* Ensure z-index works */
+    z-index: 10; /* Bring buttons to front */
+}
+
+.editBtn,
+.deleteBtn,
+.viewStudentsBtn {
+    padding: 8px 15px;
+    font-size: 0.9em;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.editBtn {
+    background-color: var(--color-info); /* Use a suitable info color */
+    color: white;
+}
+
+.editBtn:hover {
+    background-color: var(--color-info-dark);
+}
+
+.deleteBtn {
+    background-color: var(--color-danger); /* Use a suitable danger color */
+    color: white;
+}
+
+.deleteBtn:hover {
+    background-color: var(--color-danger-dark);
+}
+
+.viewStudentsBtn {
+    background-color: var(--color-secondary); /* Use a suitable secondary color */
+    color: white;
+}
+
+.viewStudentsBtn:hover {
+    background-color: var(--color-secondary-dark);
+}

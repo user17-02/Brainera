@@ -1,0 +1,148 @@
+.reviewManagementSection {
+    padding: 30px;
+    background-color: var(--bs-body-bg); /* Light grey background */
+}
+
+/* Reusing admin dashboard container and card styles for consistency */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.card {
+    background-color: var(--bs-white);
+    border-radius: var(--bs-border-radius);
+    box-shadow: var(--bs-box-shadow);
+    margin-bottom: 2rem;
+    border: 1px solid var(--bs-border-color);
+}
+
+.cardBody {
+    padding: 1.5rem;
+}
+
+.sectionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.sectionTitle {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 0;
+}
+
+/* Table styles (assuming common Bootstrap-like classes) */
+.tableResponsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: var(--bs-body-color);
+    vertical-align: top;
+    border-color: var(--bs-border-color);
+    caption-side: bottom;
+    border-collapse: collapse;
+}
+
+.table > :not(caption) > * > * {
+    padding: 0.75rem 0.75rem;
+    background-color: var(--bs-body-bg);
+    border-bottom-width: 1px;
+    box-shadow: inset 0 0 0 9999px var(--bs-table-bg);
+}
+
+.table > tbody {
+    vertical-align: inherit;
+}
+
+.table > thead {
+    vertical-align: bottom;
+}
+
+.table > thead th {
+    font-weight: bold;
+    background-color: var(--bg-light);
+    color: var(--text-color);
+    border-bottom: 2px solid var(--bs-border-color);
+    text-align: left;
+}
+
+.table > tbody tr:hover {
+    background-color: var(--bs-table-hover-bg);
+}
+
+.table > tbody td {
+    border-bottom: 1px solid var(--bs-border-color);
+    text-align: left;
+}
+
+/* Button styles (reusing common patterns) */
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--bs-body-color);
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    border-radius: 0.2rem;
+}
+
+.btn-info {
+    color: var(--bs-white);
+    background-color: var(--bs-info);
+    border-color: var(--bs-info);
+}
+
+.btn-info:hover {
+    color: var(--bs-white);
+    background-color: #1294a5; /* Slightly darker info */
+    border-color: #1294a5;
+}
+
+.btn-danger {
+    color: var(--bs-white);
+    background-color: var(--bs-danger);
+    border-color: var(--bs-danger);
+}
+
+.btn-danger:hover {
+    color: var(--bs-white);
+    background-color: #c02b3c; /* Slightly darker danger */
+    border-color: #c02b3c;
+}
+
+.me-2 {
+    margin-right: 0.5rem !important;
+}
+
+/* No reviews message */
+.noReviewsMessage {
+    text-align: center;
+    padding: 20px;
+    font-size: 1.1em;
+    color: var(--text-muted);
+}

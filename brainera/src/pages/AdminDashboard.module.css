@@ -1,0 +1,203 @@
+/* AdminDashboard.module.css - Redesigned for Fixed Sidebar Layout (Matching Reference) */
+
+.adminDashboard {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    flex-shrink: 0;
+    background-color: #2F91A0;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.sidebarHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    background-color: #257B88;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.sidebarBrand {
+    display: flex;
+    align-items: center;
+}
+
+.sidebarLogoIcon {
+    margin-right: 0.75rem;
+}
+
+.closeSidebarBtn {
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebarNavList {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0 0;
+}
+
+.sidebarNavLink {
+    display: flex;
+    align-items: center;
+    padding: 0.85rem 1.5rem;
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.sidebarNavLink:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.activeSidebarNavLink {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-weight: 600;
+}
+
+.sidebarNavLink svg {
+    margin-right: 12px;
+}
+
+.sidebarLogout {
+    margin-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebarLogout button {
+    background: transparent;
+    border: none;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    padding: 0.85rem 1.5rem;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.sidebarLogout button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Main Content Area */
+.mainContentWrapper {
+    margin-left: 250px;
+    flex-grow: 1;
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    width: calc(100% - 250px);
+}
+
+.mainContent {
+    padding: 0;
+}
+
+/* Mobile Header */
+.mobileHeader {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: white;
+    align-items: center;
+    padding: 0 15px;
+    z-index: 999;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.hamburger {
+    background: transparent;
+    border: none;
+    color: #333;
+    cursor: pointer;
+    padding: 10px;
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobileLogo {
+    display: flex;
+    align-items: center;
+}
+
+.mobileLogoImage {
+    height: 35px;
+    width: auto;
+    display: block;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1050;
+}
+
+/* Responsive */
+@media (max-width: 991.98px) {
+    .mobileHeader {
+        display: flex;
+    }
+
+    .sidebar {
+        left: -250px;
+        transition: left 0.3s ease;
+        z-index: 1100;
+    }
+
+    .sidebarOpen {
+        left: 0;
+    }
+
+    .closeSidebarBtn {
+        display: flex;
+    }
+
+    .mainContentWrapper {
+        margin-left: 0;
+        width: 100%;
+        padding-top: 70px;
+    }
+
+    .overlay {
+        display: block;
+    }
+}
+
+.loadingMessage,
+.errorMessage {
+    padding: 2rem;
+    text-align: center;
+}
