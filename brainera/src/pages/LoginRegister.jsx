@@ -13,8 +13,6 @@ const LoginRegister = () => {
     const navigate = useNavigate();
     const { login } = useContext(AuthContext); // Consume login from AuthContext
 
-    const BACKEND_URL = "https://learnsphere-zwzg.onrender.com";
-
     const toggleForm = () => {
         setIsLogin(!isLogin);
         // Clear form fields when toggling
@@ -27,7 +25,7 @@ const LoginRegister = () => {
     const handleLoginSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch(`${BACKEND_URL}/api/auth/login`, {
+            const response = await fetch('/api/auth/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -61,7 +59,7 @@ const LoginRegister = () => {
     const handleRegisterSubmit = async (e) => { // Made async
         e.preventDefault();
         try {
-            const response = await fetch(`${BACKEND_URL}/api/auth/register`, {
+            const response = await fetch('/api/auth/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
