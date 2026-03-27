@@ -5,7 +5,7 @@ import styles from './InstructorEnrolledStudents.module.css'; // Component-speci
 import adminStyles from './AdminDashboard.module.css'; // Reusing some admin table styles
 import AuthContext from '../context/AuthContext';
 
-const BACKEND_BASE_URL = 'http://localhost:5000'; // Ensure this matches your backend URL
+const BACKEND_BASE_URL = 'https://learnsphere-zwzg.onrender.com'; // Ensure this matches your backend URL
 
 const InstructorEnrolledStudents = () => {
     const { courseId } = useParams(); // Get courseId from URL
