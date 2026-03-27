@@ -7,10 +7,11 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-# Dependencies
+# Dependencies and Database
 node_modules/
 backend/node_modules/
 brainera/node_modules/
+backend/data/
 
 # Production
 dist/
