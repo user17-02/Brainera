@@ -33,7 +33,7 @@ const InstructorCourseReviews = () => {
         const fetchData = async () => {
             try {
                 // Fetch course details for title
-                const courseResponse = await fetch(`/api/courses/${courseId}`);
+                const courseResponse = await fetch(`${BACKEND_BASE_URL}/api/courses/${courseId}`);
                 if (!courseResponse.ok) {
                     throw new Error('Failed to fetch course title.');
                 }
@@ -41,7 +41,7 @@ const InstructorCourseReviews = () => {
                 setCourseTitle(courseData.title);
 
                 // Fetch reviews for this specific course
-                const reviewsResponse = await fetch(`/api/courses/${courseId}/reviews`, {
+                const reviewsResponse = await fetch(`${BACKEND_BASE_URL}/api/courses/${courseId}/reviews`, {
                     headers: {
                         'x-auth-token': localStorage.getItem('token'),
                         'Content-Type': 'application/json',
@@ -73,7 +73,7 @@ const InstructorCourseReviews = () => {
         if (window.confirm('Are you sure you want to delete this review?')) {
             try {
                 // Instructor can only delete reviews for their own courses
-                const response = await fetch(`/api/courses/${courseId}/reviews/${reviewId}`, {
+                const response = await fetch(`${BACKEND_BASE_URL}/api/courses/${courseId}/reviews/${reviewId}`,  {
                     method: 'DELETE',
                     headers: {
                         'x-auth-token': localStorage.getItem('token'),
