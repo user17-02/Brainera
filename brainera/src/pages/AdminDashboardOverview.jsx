@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PageHeader from '../components/PageHeader'; // Assuming PageHeader is self-contained Bootstrap-friendly
 // import adminStyles from './AdminDashboard.module.css'; // Will no longer be directly used for styling most elements
 
+const BACKEND_BASE_URL = 'https://learnsphere-zwzg.onrender.com';
 const AdminDashboardOverview = () => {
     const [dashboardStats, setDashboardStats] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -10,7 +11,7 @@ const AdminDashboardOverview = () => {
     useEffect(() => {
         const fetchDashboardStats = async () => {
             try {
-                const response = await fetch('/api/admin/stats', {
+                const response = await fetch(`${BACKEND_BASE_URL}/api/admin/stats`, {
                     headers: {
                         'x-auth-token': localStorage.getItem('token'),
                     },
