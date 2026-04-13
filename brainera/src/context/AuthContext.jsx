@@ -8,6 +8,7 @@ export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
   const [authLoading, setAuthLoading] = useState(true); // New loading state
+  const BACKEND_BASE_URL = 'https://learnsphere-zwzg.onrender.com';
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -21,7 +22,7 @@ export const AuthProvider = ({ children }) => {
       setAuthLoading(true); // Start loading
       if (token) {
         try {
-          const response = await fetch('/api/auth/verify', {
+          const response = await fetch(`${BACKEND_BASE_URL}/api/auth/verify`, {
             method: 'GET',
             headers: {
               'x-auth-token': token,
