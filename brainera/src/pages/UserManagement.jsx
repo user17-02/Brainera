@@ -3,6 +3,7 @@ import styles from './UserManagement.module.css'; // Component-specific styles
 import adminStyles from './AdminDashboard.module.css'; // Admin dashboard layout styles
 import UserEditForm from './UserEditForm'; // Import the new UserEditForm
 import UserCreateForm from './UserCreateForm'; // Import the new UserCreateForm
+const BACKEND_BASE_URL = 'https://learnsphere-zwzg.onrender.com';
 
 const UserManagement = () => {
     const [users, setUsers] = useState([]);
@@ -14,7 +15,7 @@ const UserManagement = () => {
 
     const fetchUsers = async () => { // Moved fetchUsers outside useEffect for reusability
         try {
-            const response = await fetch('/api/admin/users', {
+            const response = await fetch(`${BACKEND_BASE_URL}/api/admin/users`, {
                 headers: {
                     'x-auth-token': localStorage.getItem('token'),
                 },
@@ -47,7 +48,7 @@ const UserManagement = () => {
     const handleDelete = async (userId) => {
         if (window.confirm('Are you sure you want to delete this user?')) {
             try {
-                const response = await fetch(`/api/admin/users/${userId}`, {
+                const response = await fetch(`${BACKEND_BASE_URL}/api/admin/users/${userId}`, {
                     method: 'DELETE',
                     headers: {
                         'x-auth-token': localStorage.getItem('token'),
@@ -71,7 +72,7 @@ const UserManagement = () => {
 
     const handleSaveEdit = async (userId, updatedData) => {
         try {
-            const response = await fetch(`/api/admin/users/${userId}`, {
+            const response = await fetch (`${BACKEND_BASE_URL}/api/admin/users/${userId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -94,7 +95,7 @@ const UserManagement = () => {
 
     const handleCreateUser = async (newUserData) => {
         try {
-            const response = await fetch('/api/admin/users', {
+            const response = await fetch(`${BACKEND_BASE_URL}/api/admin/users`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
