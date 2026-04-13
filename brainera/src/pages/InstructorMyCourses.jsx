@@ -27,7 +27,7 @@ const InstructorMyCourses = () => {
             return;
         }
         try {
-            const response = await fetch('/api/courses/my-courses', {
+            const response = await fetch(`${BACKEND_BASE_URL}/api/courses/my-courses`, {
                 headers: {
                     'x-auth-token': localStorage.getItem('token'),
                     'Content-Type': 'application/json',
@@ -61,7 +61,7 @@ const InstructorMyCourses = () => {
     const handleDelete = async (courseId) => {
         if (window.confirm('Are you sure you want to delete this course? This action cannot be undone.')) {
             try {
-                const response = await fetch(`/api/courses/${courseId}`, {
+                const response = await fetch(`${BACKEND_BASE_URL}/api/courses/${courseId}`, {
                     method: 'DELETE',
                     headers: {
                         'x-auth-token': localStorage.getItem('token'),
@@ -104,7 +104,7 @@ const InstructorMyCourses = () => {
         }
 
         try {
-            const response = await fetch(`/api/courses/${courseId}`, {
+            const response = await fetch(`${BACKEND_BASE_URL}/api/courses/${courseId}`, {
                 method: 'PUT',
                 headers: headers,
                 body: bodyContent,
@@ -142,7 +142,7 @@ const InstructorMyCourses = () => {
         }
 
         try {
-            const response = await fetch('/api/courses', {
+            const response = await fetch(`${BACKEND_BASE_URL}/api/courses`, {
                 method: 'POST',
                 headers: headers,
                 body: bodyContent,
