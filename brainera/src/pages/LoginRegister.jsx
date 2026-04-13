@@ -25,7 +25,7 @@ const LoginRegister = () => {
     const handleLoginSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('/api/auth/login', {
+            const response = await fetch('https://learnsphere-zwzg.onrender.com/api/auth/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -59,7 +59,7 @@ const LoginRegister = () => {
     const handleRegisterSubmit = async (e) => { // Made async
         e.preventDefault();
         try {
-            const response = await fetch('/api/auth/register', {
+            const response = await fetch('https://learnsphere-zwzg.onrender.com/api/auth/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
