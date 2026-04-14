@@ -21,8 +21,8 @@
 
 /* Brand Column */
 .brandLogo {
-    height: 40px;
-    /* Adjust height to fit */
+    height: 64px;
+    /* Increased height for better visibility */
     margin-bottom: 20px;
     display: block;
 }
