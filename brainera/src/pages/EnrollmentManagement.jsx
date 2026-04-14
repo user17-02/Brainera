@@ -3,6 +3,8 @@ import styles from './EnrollmentManagement.module.css';
 import adminStyles from './AdminDashboard.module.css'; // Admin dashboard layout styles
 import EnrollmentCreateForm from './EnrollmentCreateForm'; // Import the new EnrollmentCreateForm
 
+const BACKEND_BASE_URL = 'https://learnsphere-zwzg.onrender.com';
+
 const EnrollmentManagement = () => {
     const [enrollments, setEnrollments] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -11,7 +13,7 @@ const EnrollmentManagement = () => {
 
     const fetchEnrollments = async () => { // Moved fetchEnrollments outside useEffect for reusability
         try {
-            const response = await fetch('/api/admin/enrollments', {
+            const response = await fetch(`${BACKEND_BASE_URL}/api/admin/enrollments`, {
                 headers: {
                     'x-auth-token': localStorage.getItem('token'),
                 },
@@ -44,7 +46,7 @@ const EnrollmentManagement = () => {
     const handleDelete = async (enrollmentId) => {
         if (window.confirm('Are you sure you want to delete this enrollment?')) {
             try {
-                const response = await fetch(`/api/admin/enrollments/${enrollmentId}`, {
+                const response = await fetch(`${BACKEND_BASE_URL}/api/admin/enrollments/${enrollmentId}`, {
                     method: 'DELETE',
                     headers: {
                         'x-auth-token': localStorage.getItem('token'),
@@ -64,7 +66,7 @@ const EnrollmentManagement = () => {
 
     const handleCreateEnrollment = async (newEnrollmentData) => {
         try {
-            const response = await fetch('/api/enrollments/admin', { // Use new admin endpoint
+            const response = await fetch(`${BACKEND_BASE_URL}/api/enrollments/admin`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -89,29 +91,53 @@ const EnrollmentManagement = () => {
     };
 
     if (loading) {
-        return <p className={adminStyles.loadingMessage}>Loading enrollments...</p>; // Using adminStyles for consistency
+        return <p className={adminStyles.loadingMessage}>Loading enrollments...</p>;
     }
 
     if (error) {
-        return <p className={adminStyles.errorMessage}>Error: {error}</p>; // Using adminStyles for consistency
+        return <p className={adminStyles.errorMessage}>Error: {error}</p>;
     }
 
     return (
-        <div className="container-fluid py-4"> {/* Use Bootstrap container for main content area padding */}
-            {!showCreateForm && ( /* Conditionally render the table and header */
-                <div className="card"> {/* Bootstrap card for the entire management section */}
-                    <div className="card-body"> {/* Card body for padding */}
-                        <div className="d-flex justify-content-between align-items-center mb-3"> {/* Bootstrap for title and button alignment */}
-                            <h2 className="mb-0">Enrollment Management</h2> {/* mb-0 to remove bottom margin */}
+        <div className="container-fluid py-4">
+            {!showCreateForm && (
+                <div className="card">
+                    <div className="card-body">
+                        <div className="d-flex justify-content-between align-items-center mb-3">
+                            <h2 className="mb-0">Enrollment Management</h2>
                             <button 
-                                className="btn btn-primary" // Bootstrap primary button
+                                className="btn btn-primary"
                                 onClick={() => setShowCreateForm(true)}
                             >
                                 Add Enrollment
                             </button>
                         </div>
-                        <div className="table-responsive"> {/* For responsive tables */}
-                                                        <table className="table table-striped table-hover"><thead><tr><th>ID</th><th>User</th><th>Course</th><th>Date</th><th>Actions</th></tr></thead><tbody>{enrollments.map((enrollment) => (<tr key={enrollment._id}><td>{enrollment._id}</td><td>{enrollment.studentId?.name || 'N/A'}</td><td>{enrollment.courseId?.title || 'N/A'}</td><td>{new Date(enrollment.enrolledAt).toLocaleDateString()}</td><td><button className="btn btn-sm btn-danger" onClick={() => handleDelete(enrollment._id)}>Delete</button></td></tr>))}</tbody></table>                        </div>
+                        <div className="table-responsive">
+                            <table className="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>User</th>
+                                        <th>Course</th>
+                                        <th>Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {enrollments.map((enrollment) => (
+                                        <tr key={enrollment._id}>
+                                            <td>{enrollment._id}</td>
+                                            <td>{enrollment.studentId?.name || 'N/A'}</td>
+                                            <td>{enrollment.courseId?.title || 'N/A'}</td>
+                                            <td>{new Date(enrollment.enrolledAt).toLocaleDateString()}</td>
+                                            <td>
+                                                <button className="btn btn-sm btn-danger" onClick={() => handleDelete(enrollment._id)}>Delete</button>
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             )}
