@@ -8,33 +8,29 @@ import CourseCategories from '../components/CourseCategories';
 import FAQ from '../components/FAQ';
 import AuthContext from '../context/AuthContext'; // Import AuthContext
 
-const BACKEND_BASE_URL = ''; // Use relative paths to leverage Vite proxy during dev
+const BACKEND_BASE_URL = 'https://learnsphere-zwzg.onrender.com';
 
-// Create a new style object for the page specific layout if needed,
-// or mostly reuse Courses.module.css but with a different container/grid layout.
-// For now, inline styles for grid container to force all items.
 const CoursesPage = () => {
-    const { isLoggedIn, user } = useContext(AuthContext); // Access login status and user info
-    const navigate = useNavigate(); // Initialize useNavigate hook
+    const { isLoggedIn, user } = useContext(AuthContext);
+    const navigate = useNavigate();
 
-    const [courses, setCourses] = useState([]); // State for courses from backend
-    const [loadingCourses, setLoadingCourses] = useState(true); // Loading state for courses
-    const [errorCourses, setErrorCourses] = useState(null); // Error state for courses
+    const [courses, setCourses] = useState([]);
+    const [loadingCourses, setLoadingCourses] = useState(true);
+    const [errorCourses, setErrorCourses] = useState(null);
 
     const [userEnrollments, setUserEnrollments] = useState([]);
     const [loadingEnrollments, setLoadingEnrollments] = useState(true);
     const [errorEnrollments, setErrorEnrollments] = useState(null);
 
-    // Effect to fetch all courses from the backend
     useEffect(() => {
         const fetchCourses = async () => {
             try {
-                const response = await fetch(`${BACKEND_BASE_URL}/api/courses`); // Assuming /api/courses returns all courses
+                const response = await fetch(`${BACKEND_BASE_URL}/api/courses`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch courses from API');
                 }
                 const data = await response.json();
-                setCourses(data); // Assuming data is an array of courses
+                setCourses(data);
             } catch (err) {
                 console.error('Error fetching courses:', err);
                 setErrorCourses(err.message);
@@ -44,9 +40,8 @@ const CoursesPage = () => {
             }
         };
         fetchCourses();
-    }, []); // Runs once on component mount
+    }, []);
 
-    // Effect to fetch user enrollments
     useEffect(() => {
         const fetchEnrollments = async () => {
             if (isLoggedIn && user && user.id) {
@@ -58,7 +53,6 @@ const CoursesPage = () => {
                     });
                     if (response.ok) {
                         const data = await response.json();
-                        // Extract courseIds from enrollments to easily check enrollment status
                         const enrolledCourseIds = data.enrollments.map(enrollment => enrollment.courseId._id);
                         setUserEnrollments(enrolledCourseIds);
                     } else {
@@ -70,24 +64,24 @@ const CoursesPage = () => {
                     setUserEnrollments([]);
                 }
             } else {
-                setUserEnrollments([]); // Clear enrollments if not logged in
+                setUserEnrollments([]);
             }
             setLoadingEnrollments(false);
         };
 
         fetchEnrollments();
-    }, [isLoggedIn, user]); // Rerun when login status or user changes
+    }, [isLoggedIn, user]);
 
     const handleJoinCourse = (courseId) => {
         if (!isLoggedIn) {
-            navigate('/login-register'); // Redirect to login/register page
+            navigate('/login-register');
         } else {
-            navigate(`/checkout/${courseId}`); // Redirect to payment page
+            navigate(`/checkout/${courseId}`);
         }
     };
 
     const handleGoToCourse = (courseId) => {
-        navigate(`/course-detail/${courseId}`); // Redirect to Course Detail page
+        navigate(`/course-detail/${courseId}`);
     };
 
     if (loadingCourses) {
@@ -114,12 +108,14 @@ const CoursesPage = () => {
                     </div>
 
                     <div className={styles.grid}>
-                        {courses.map(course => { // Iterate over fetched courses
+                        {courses.map(course => {
                             const isEnrolled = userEnrollments.includes(course._id);
-                            // Determine image source: if it's a relative path, prepend backend URL
-                            const imageSrc = course.thumbnail && course.thumbnail.startsWith('/')
-                                ? course.thumbnail // Vite proxy handles /uploads
-                                : course.thumbnail;
+
+                            const imageSrc = course.thumbnail
+                                ? course.thumbnail.startsWith('http')
+                                    ? course.thumbnail
+                                    : `https://learnsphere-zwzg.onrender.com${course.thumbnail}`
+                                : '/vite.svg';
 
                             return (
                                 <div key={course._id} className={styles.card}>
@@ -128,7 +124,7 @@ const CoursesPage = () => {
                                             src={imageSrc}
                                             alt={course.title}
                                             className={styles.image}
-                                            onError={(e) => { e.target.onerror = null; e.target.src="/vite.svg"; }} // Fallback to a placeholder
+                                            onError={(e) => { e.target.onerror = null; e.target.src="/vite.svg"; }}
                                         />
                                     </div>
                                     <div className={styles.content}>
@@ -138,29 +134,31 @@ const CoursesPage = () => {
                                         <div className={styles.meta}>
                                             <div className={styles.metaItem}>
                                                 <BookOpen size={18} />
-                                                <span>{course.sections} Sections</span>
+                                                <span>{course.sections || 10} Sections</span>
                                             </div>
                                             <div className={styles.metaItem}>
                                                 <Users size={18} />
-                                                <span>{course.students} Students</span>
+                                                <span>{course.students?.length || 0} Students</span>
                                             </div>
                                         </div>
 
                                         <div className={styles.footer}>
                                             <span className={styles.price}>${course.price}</span>
-                                            {loadingEnrollments || errorEnrollments ? ( // Handle loading/error for enrollments
-                                                <button className={styles.joinBtn} disabled>{errorEnrollments ? 'Error' : 'Loading...'}</button>
+                                            {loadingEnrollments || errorEnrollments ? (
+                                                <button className={styles.joinBtn} disabled>
+                                                    {errorEnrollments ? 'Error' : 'Loading...'}
+                                                </button>
                                             ) : isEnrolled ? (
                                                 <button
-                                                    className={styles.goToCourseBtn} // New class for enrolled button
-                                                    onClick={() => handleGoToCourse(course._id)} // Use course._id
+                                                    className={styles.goToCourseBtn}
+                                                    onClick={() => handleGoToCourse(course._id)}
                                                 >
                                                     Go to Course
                                                 </button>
                                             ) : (
                                                 <button
                                                     className={styles.joinBtn}
-                                                    onClick={() => handleJoinCourse(course._id)} // Use course._id
+                                                    onClick={() => handleJoinCourse(course._id)}
                                                 >
                                                     Join Course
                                                 </button>
