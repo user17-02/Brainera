@@ -4,7 +4,7 @@ const fs = require('fs'); // Import the file system module
 
 // Define the destination directory for uploads
 // Updated to use the shared public directory at the project root
-const uploadDir = path.join(__dirname, '../../../public/uploads/images');
+const uploadDir = path.join(process.cwd(), 'uploads');
 
 // Create the upload directory if it doesn't exist
 if (!fs.existsSync(uploadDir)) {
