@@ -111,11 +111,11 @@ const CoursesPage = () => {
                         {courses.map(course => {
                             const isEnrolled = userEnrollments.includes(course._id);
 
-                            const imageSrc = course.thumbnail
-                                ? course.thumbnail.startsWith('http')
-                                    ? course.thumbnail
-                                    : `https://learnsphere-zwzg.onrender.com${course.thumbnail}`
-                                : '/vite.svg';
+                           const imageSrc = course.thumbnail
+  ? course.thumbnail.startsWith('http')
+    ? course.thumbnail
+    : `https://learnsphere-zwzg.onrender.com${course.thumbnail.replace('/uploads/images', '/uploads')}`
+  : '/vite.svg';
 
                             return (
                                 <div key={course._id} className={styles.card}>
