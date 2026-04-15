@@ -20,7 +20,7 @@ app.use(cors());
 
 // Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, '..', 'public'))); // Correctly serve static files
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/uploads', express.static(path.join(process.cwd(), 'backend', 'uploads')));
 
 app.get('/', (req, res) => {
   res.send('API is running...');
