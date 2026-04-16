@@ -2,11 +2,11 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PageHeader from '../components/PageHeader';
 import { BookOpen, Users } from 'lucide-react';
-import styles from '../components/Courses.module.css'; // Reusing existing card styles
+import styles from '../components/Courses.module.css';
 import CTA from '../components/CTA';
 import CourseCategories from '../components/CourseCategories';
 import FAQ from '../components/FAQ';
-import AuthContext from '../context/AuthContext'; // Import AuthContext
+import AuthContext from '../context/AuthContext';
 
 const BACKEND_BASE_URL = 'https://learnsphere-zwzg.onrender.com';
 
@@ -51,16 +51,18 @@ const CoursesPage = () => {
                             'x-auth-token': localStorage.getItem('token'),
                         },
                     });
+
                     if (response.ok) {
                         const data = await response.json();
-                        const enrolledCourseIds = data.enrollments.map(enrollment => enrollment.courseId._id);
+                        const enrolledCourseIds = data.enrollments.map(
+                            (enrollment) => enrollment.courseId._id
+                        );
                         setUserEnrollments(enrolledCourseIds);
                     } else {
-                        console.error('Failed to fetch user enrollments:', response.statusText);
                         setUserEnrollments([]);
                     }
                 } catch (error) {
-                    console.error('Error fetching user enrollments:', error);
+                    console.error('Error fetching enrollments:', error);
                     setUserEnrollments([]);
                 }
             } else {
@@ -93,7 +95,7 @@ const CoursesPage = () => {
     }
 
     if (courses.length === 0) {
-        return <p className={styles.noCoursesMessage}>No courses available at the moment.</p>;
+        return <p className={styles.noCoursesMessage}>No courses available.</p>;
     }
 
     return (
@@ -109,13 +111,15 @@ const CoursesPage = () => {
 
                     <div className={styles.grid}>
                         {courses.map(course => {
-                            const isEnrolled = userEnrollments.includes(course._id);
 
-                           const imageSrc = course.thumbnail
-  ? course.thumbnail.startsWith('http')
-    ? course.thumbnail
-    : `https://learnsphere-zwzg.onrender.com${course.thumbnail.replace('/uploads/images', '/uploads')}`
-  : '/vite.svg';
+                            // ✅ CLEAN & CORRECT IMAGE FIX
+                            const imageSrc = course.thumbnail
+                                ? course.thumbnail.startsWith('http')
+                                    ? course.thumbnail
+                                    : `${BACKEND_BASE_URL}${course.thumbnail}`
+                                : '/vite.svg';
+
+                            const isEnrolled = userEnrollments.includes(course._id);
 
                             return (
                                 <div key={course._id} className={styles.card}>
@@ -124,9 +128,13 @@ const CoursesPage = () => {
                                             src={imageSrc}
                                             alt={course.title}
                                             className={styles.image}
-                                            onError={(e) => { e.target.onerror = null; e.target.src="/vite.svg"; }}
+                                            onError={(e) => {
+                                                e.target.onerror = null;
+                                                e.target.src = "/vite.svg";
+                                            }}
                                         />
                                     </div>
+
                                     <div className={styles.content}>
                                         <span className={styles.category}>{course.category}</span>
                                         <h3 className={styles.courseTitle}>{course.title}</h3>
@@ -144,9 +152,10 @@ const CoursesPage = () => {
 
                                         <div className={styles.footer}>
                                             <span className={styles.price}>${course.price}</span>
-                                            {loadingEnrollments || errorEnrollments ? (
+
+                                            {loadingEnrollments ? (
                                                 <button className={styles.joinBtn} disabled>
-                                                    {errorEnrollments ? 'Error' : 'Loading...'}
+                                                    Loading...
                                                 </button>
                                             ) : isEnrolled ? (
                                                 <button
