@@ -2,12 +2,10 @@ const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
 const connectDB = require('./config/db');
-const path = require('path'); // Import the 'path' module
+const path = require('path');
 
-// Load env vars
 dotenv.config();
 
-// Connect to database
 connectDB();
 
 const app = express();
@@ -18,15 +16,17 @@ app.use(express.json());
 // Enable CORS
 app.use(cors());
 
-// Serve static files from the 'public' directory
-app.use(express.static(path.join(__dirname, '..', 'public'))); // Correctly serve static files
-app.use('/uploads', express.static('/opt/render/project/src/backend/uploads'));
+// Serve public folder
+app.use(express.static(path.join(__dirname, '..', 'public')));
+
+// Serve uploads folder
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.get('/', (req, res) => {
   res.send('API is running...');
 });
 
-// Define Routes
+// Routes
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/courses', require('./routes/courses'));
 app.use('/api/enrollments', require('./routes/enrollments'));
